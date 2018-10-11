@@ -104,11 +104,6 @@ vtkSmartPointer<vtkActor> getDataSetAsActor(float pointArray[][4], int numPoints
     //Points group declaration
     vtkSmartPointer<vtkPoints> points = vtkSmartPointer<vtkPoints>::New();
     
-    //points->InsertNextPoint (0.0, 0.0, 0.0);
-    //points->InsertNextPoint (1.0, 0.0, 0.0);
-    //points->InsertNextPoint (0.0, 1.0, 0.0);
-    //points->InsertNextPoint (0.0, -1.0, 0.0);
-    
     //Colors setup
     vtkSmartPointer<vtkUnsignedCharArray> colors = vtkSmartPointer<vtkUnsignedCharArray>::New();
     colors->SetNumberOfComponents(3);
@@ -117,12 +112,9 @@ vtkSmartPointer<vtkActor> getDataSetAsActor(float pointArray[][4], int numPoints
     //Variable to set colors
     unsigned char color[3] = {0, 0, 0};
     
-    //points->SetNumberOfPoints(numberOfPoints);
-    
     for(unsigned int i = 0; i < numPoints; i++)
     {
         points->InsertNextPoint(pointArray[i][0], pointArray[i][1], pointArray[i][2]);
-        //calculateColorByAmplitude(color, pointArray[i][3]);
         calculateColorByAmplitudeInRange(color, pointArray[i][3], 0.0, 1.0);
         colors->InsertNextTupleValue(color);
         //With ID
@@ -171,11 +163,6 @@ vtkSmartPointer<vtkActor> getDataSetAsActor()
     //Points group declaration
     vtkSmartPointer<vtkPoints> points = vtkSmartPointer<vtkPoints>::New();
     
-    //points->InsertNextPoint (0.0, 0.0, 0.0);
-    //points->InsertNextPoint (1.0, 0.0, 0.0);
-    //points->InsertNextPoint (0.0, 1.0, 0.0);
-    //points->InsertNextPoint (0.0, -1.0, 0.0);
-    
     int numberOfPoints = 1.0e7;
     
     //Colors setup
@@ -186,9 +173,7 @@ vtkSmartPointer<vtkActor> getDataSetAsActor()
     
     //Variable to set colors
     unsigned char color[3] = {0, 0, 0};
-    
-    //points->SetNumberOfPoints(numberOfPoints);
-    
+        
     for(unsigned int i = 0; i < numberOfPoints; i++)
     {
         points->InsertNextPoint(vtkMath::Random(-10.0,10.0), vtkMath::Random(-10.0,10.0), vtkMath::Random(-10.0,10.0));

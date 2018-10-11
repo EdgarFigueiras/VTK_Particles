@@ -11,10 +11,8 @@ int main(int, char *[])
     //Number of particles
     int N = 1.0e6;
     
-    
+    //Shape of the array
     //{X,Y,Z,psi}
-    //static float pointArray[N][4];
-    
     static float pointArray[1000000][4];
     
     //Filling the array with random data
@@ -39,7 +37,8 @@ int main(int, char *[])
     
     //Call function to set particles and calculate colors
     renderer->AddActor(getDataSetAsActor(pointArray,N));
-    renderer->SetBackground(0,0,0); // Background color
+    //Background color
+    renderer->SetBackground(0,0,0);
     
     renderWindow->Render();
     renderWindowInteractor->Start();
